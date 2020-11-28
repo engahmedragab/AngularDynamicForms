@@ -1,0 +1,33 @@
+<div [formGroup]="form" >
+  <label [attr.for]="controller.key">{{controller.Label}}</label>
+
+  <div [ngSwitch]="controller.ControlType.toString()">
+      
+    <input *ngSwitchCase="Controls.TEXTBOX.toString()" 
+              [formControlName]="controller.key"
+              [id]="controller.key"
+              [value]="controller.Value(0)"
+              [class]="controller.Attr.class" 
+              [type]="controller.Attr.type"
+              [placeholder]="controller.Attr.placeholder"
+              [readOnly]="controller.Attr.readonly"
+              [required]="controller.Attr.required"
+              [hidden]="controller.Attr.hidden"
+              (click)="controller.Events.clickEvent()"
+              (blur)="controller.Events.blurEvent()"
+              (change)="controller.Events.changeEvent()"
+    >
+
+      
+    <select [id]="controller.key" *ngSwitchCase="Controls.DROPDOWN.toString()" [formControlName]="controller.key">
+      <option *ngFor="let opt of controller.options" [value]="opt.key">{{opt.value}}</option>
+    </select>
+
+
+  </div>
+  <div class="errorMessage" *ngIf="!isValid">{{controller.Label}} is required</div>
+  <div  *ngFor="let valid of controller.Validations">
+    <div class="errorMessage" >{{valid.message}}</div>
+  </div>
+
+</div>

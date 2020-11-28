@@ -1,0 +1,20 @@
+<div>
+  <form (ngSubmit)="onSubmit()" [class]="dynamicFormInput.Class.join(' ')" [formGroup]="form">
+    <h1 class="h1">{{dynamicFormInput.Title}}</h1>
+
+    <div *ngFor="let controller of dynamicFormInput.Controls" class="form-row">
+      <app-controller [controller]="controller" [form]="form"></app-controller>
+    </div>
+
+    <div class="form-row">
+      <button type="submit">Save</button>
+      <button type="button" *ngIf="dynamicFormInput.Cancel" (click)="onCancel()">cancel</button>
+    </div>
+
+
+  </form>
+
+  <div *ngIf="payLoad" class="form-row">
+    <strong>Saved the following values</strong><br>{{payLoad}}
+  </div>
+</div>
