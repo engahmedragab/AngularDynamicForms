@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Controls, Validations } from './dynamic-form-constants';
 import { ControllerBase } from './Controllers/controller-base';
@@ -7,11 +7,23 @@ import { ControllerBase } from './Controllers/controller-base';
   selector: 'app-controller',
   templateUrl: './dynamic-form-controller.component.html',
 })
-export class DynamicFormControllerComponent {
+export class DynamicFormControllerComponent implements OnInit, AfterViewInit {
   @Input() controller: ControllerBase<any>;
   @Input() form: FormGroup;
+  @ViewChild('elementRef') element;
   public Controls = Controls;
+  constructor(){
+  }
+  ngOnInit(): void {
 
+  }
+  ngAfterViewInit(): void {
+    if (this.element) {
+      this.controller.Events.forEach(event =>
+        this.element.nativeElement.querySelector('#' + this.controller.key)?.addEventListener(event.name, event.callable)
+      );
+    }
+  }
   get isValid() {
     return this.form.controls[this.controller.key].valid;
   }

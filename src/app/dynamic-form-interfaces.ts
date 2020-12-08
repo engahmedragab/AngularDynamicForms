@@ -24,7 +24,7 @@ export interface IControllerBase {
     Attr?: Attributes;
     GridLayout?: GridLayout | null;
     Validations?: Validator[] | [];
-    Events?: ControlEvent;
+    Events?: ControlEvent[] | [];
     Options?: {key: StringNumber, value: StringNumber}[];
 }
 
@@ -78,10 +78,8 @@ export interface Validator {
 }
 
 export interface ControlEvent {
-    clickEvent?: () => any;
-    changeEvent?: () => any;
-    blurEvent?: () => any;
-    selectEvent: () => any;
+    name?: 'click' | 'change' | 'blur' | 'select';
+    callable?: () => any;
 }
 
 export interface EventValue {

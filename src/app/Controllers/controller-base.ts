@@ -11,7 +11,7 @@ export class ControllerBase<T> {
   Attr?: Attributes;
   GridLayout?: GridLayout | null;
   Validations?: Validator[];
-  Events?: ControlEvent;
+  Events?: ControlEvent[];
   options: {key: StringNumber, value: StringNumber}[];
 
 
@@ -36,12 +36,7 @@ export class ControllerBase<T> {
       }, this.Attr);
       this.GridLayout = options.GridLayout;
       this.Validations = options.Validations || [];
-      this.Events = ControllerHelperService.clone<ControlEvent>({
-        clickEvent: () => {},
-        changeEvent: () => {},
-        blurEvent: () => {},
-        selectEvent: () => {},
-      }, options.Events);
+      this.Events = options.Events || [];
       this.options = options.Options || [];
   }
 }

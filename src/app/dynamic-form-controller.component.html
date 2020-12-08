@@ -1,7 +1,7 @@
-<div [formGroup]="form" >
+<div [formGroup]="form">
   <label [attr.for]="controller.key">{{controller.Label}}</label>
 
-  <div [ngSwitch]="controller.ControlType.toString()">
+  <div  #elementRef [ngSwitch]="controller.ControlType.toString()">
       
     <app-textbox *ngSwitchCase="Controls.TEXTBOX.toString()" [controller]="controller" [form]="form"
     ></app-textbox>

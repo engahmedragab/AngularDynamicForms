@@ -40,6 +40,10 @@ export class AppComponent {
         Value: () => 'Bombasto',
         Order: 1,
         ControlType : Controls.TEXTBOX,
+        Events: [{
+          name: 'click',
+          callable: () => { console.log('test click event'); }
+        }],
         Validations : [
           { name : 'required',
             validator : Validations.REQUIRED,
@@ -53,6 +57,18 @@ export class AppComponent {
         Value: () => 'Set',
         Order: 1,
         ControlType : Controls.TEXTBOX,
+        Events: [{
+          name: 'click',
+          callable: () => { console.log('test click event'); }
+        },
+        {
+          name: 'change',
+          callable: () => { console.log('test change event'); }
+        },
+        {
+          name: 'blur',
+          callable: () => { console.log('test blur event'); }
+        }],
         Validations : [
           { name : null,
             validator : Validations.EMAIL,
@@ -79,5 +95,4 @@ export class AppComponent {
   GetFormGroup(event){
     console.log(event);
   }
-  
 }
