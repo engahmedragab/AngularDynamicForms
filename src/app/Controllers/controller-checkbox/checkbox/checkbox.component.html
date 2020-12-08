@@ -1,0 +1,4 @@
+<div [formGroup]="form">
+    <input type="checkbox" [id]="controller.key" [name]="controller.key" [checked]="controller.Value" [value]="controller.Value" (change)="checkValue($event)" >
+    <label [for]="controller.key" > {{controller.Label}} </label><br>
+</div>

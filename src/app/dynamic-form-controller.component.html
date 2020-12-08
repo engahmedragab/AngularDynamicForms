@@ -3,14 +3,10 @@
 
   <div  #elementRef [ngSwitch]="controller.ControlType.toString()">
       
-    <app-textbox *ngSwitchCase="Controls.TEXTBOX.toString()" [controller]="controller" [form]="form"
-    ></app-textbox>
-
-      
-    <!-- <select [id]="controller.key" *ngSwitchCase="Controls.DROPDOWN.toString()" [formControlName]="controller.key">
-      <option *ngFor="let opt of controller.options" [value]="opt.key">{{opt.value}}</option>
-    </select> -->
-
+    <app-textbox *ngSwitchCase="Controls.TEXTBOX.toString()" [controller]="controller" [form]="form"></app-textbox>
+    <app-dropdown *ngSwitchCase="Controls.DROPDOWN.toString()" [controller]="controller" [form]="form"></app-dropdown>
+    <app-radiobutton *ngSwitchCase="Controls.RADIOBUTTON.toString()" [controller]="controller" [form]="form"></app-radiobutton>
+    <app-checkbox *ngSwitchCase="Controls.CHECKBOX.toString()" [controller]="controller" [form]="form"></app-checkbox>
 
   </div>
   <div *ngIf="!isValid">

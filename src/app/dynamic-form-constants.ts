@@ -23,7 +23,7 @@ export enum Controls {
   TEXTAREA = 'TextAreaController',
   DATETIME = 'DateTimeController',
   CHECKBOX = 'CheckBoxController',
-  RADIOBUTTON = 'RadioButtonController',
+  RADIOBUTTON = 'RadioBottonController',
   DROPDOWN = 'DropDownController',
   FILE = 'fileController',
   IMAGE = 'ImageController',

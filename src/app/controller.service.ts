@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 
-import { DropDownController } from './Controllers/controller-dropdown';
+import { DropDownController } from './Controllers/controller-dropdown/controller-dropdown';
 import { ControllerBase } from './Controllers/controller-base';
-import { of } from 'rxjs';
 import { TextBoxController } from './Controllers/controller-textbox/controller-textbox';
-import { Controls, StringNumber, Validations } from './dynamic-form-constants';
-import { RadioBottonController } from './Controllers/controller-radiobutton';
-import { CheckBoxController } from './Controllers/controller-checkbox';
+import { Validations } from './dynamic-form-constants';
+import { RadioBottonController } from './Controllers/controller-radiobutton/controller-radiobutton';
+import { CheckBoxController } from './Controllers/controller-checkbox/controller-checkbox';
 import { IControllerBase, Validator } from './dynamic-form-interfaces';
 import { ValidatorFn, Validators } from '@angular/forms';
 
@@ -19,16 +18,6 @@ export default [
 
 @Injectable()
 export class ControllerService {
-
-  // getItems(controls) {
-  //   return controls.map((control) => {
-  //     const label = control.type;
-  //     return {
-  //       label,
-  //       action: () => new label(), // Setting up a simple factory method for use when this item is selected in the list
-  //     };
-  //   });
-  // }
 
   static CreateValidator(validation: Validator): ValidatorFn{
     switch (validation.validator) {

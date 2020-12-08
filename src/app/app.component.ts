@@ -25,7 +25,20 @@ export class AppComponent {
       Controls: [{
         key: 'brave',
         ControlType: Controls.DROPDOWN,
+        Events: [{
+          name: EventTypes.CLICK,
+          callable: () => { console.log('test click event'); }
+        },
+        {
+          name: EventTypes.CHANGE,
+          callable: () => { console.log('test change event'); }
+        },
+        {
+          name: EventTypes.BLUR,
+          callable: () => { console.log('test blur event'); }
+        }],
         Label: 'Bravery Rating',
+        Value: () => 2,
         Options: [
           { key: 1, value: 'Solid' },
           { key: 2, value: 'Great' },
@@ -54,7 +67,7 @@ export class AppComponent {
     ,
     {   key: 'email',
         Label: 'Email',
-        Value: () => 'Set',
+        Value: () => 'Set@s.ssfdf',
         Order: 1,
         ControlType : Controls.TEXTBOX,
         Events: [{
@@ -84,6 +97,50 @@ export class AppComponent {
             requiredValue : 10
           }
         ]
+      },
+      {
+        key: 'bravooo',
+        ControlType: Controls.RADIOBUTTON,
+        Events: [{
+          name: EventTypes.CLICK,
+          callable: () => { console.log('test click event'); }
+        },
+        {
+          name: EventTypes.CHANGE,
+          callable: () => { console.log('test change event'); }
+        },
+        {
+          name: EventTypes.BLUR,
+          callable: () => { console.log('test blur event'); }
+        }],
+        Label: 'goool Rating',
+        Value: () => 2,
+        Options: [
+          { key: 1, value: 'Solid' },
+          { key: 2, value: 'Great' },
+          { key: 3, value: 'Good' },
+          { key: 4, value: 'Unproven' }
+        ],
+        Order: 4
+      },
+      {
+        key: 'deal',
+        ControlType: Controls.CHECKBOX,
+        Value: () => false,
+        Events: [{
+          name: EventTypes.CLICK,
+          callable: () => { console.log('test click event'); }
+        },
+        {
+          name: EventTypes.CHANGE,
+          callable: () => { console.log('test change event'); }
+        },
+        {
+          name: EventTypes.BLUR,
+          callable: () => { console.log('test blur event'); }
+        }],
+        Label: 'goool CheckBox',
+        Order: 5
       }
     ],
       Submit: () => { console.log('Submit'); },
