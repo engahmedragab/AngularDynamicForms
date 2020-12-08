@@ -1,4 +1,4 @@
-import { ControllerService } from '../controller.service';
+import { ControllerHelperService } from '../controller-helper.service';
 import { Controls, StringNull, StringNumber, Value } from '../dynamic-form-constants';
 import { Attributes, ControlEvent, GridLayout, IControllerBase, Validator } from '../dynamic-form-interfaces';
 
@@ -23,7 +23,7 @@ export class ControllerBase<T> {
       this.Label = options.Label || '';
       this.Order = options.Order === undefined ? 1 : options.Order;
       this.ControlType = options.ControlType;
-      this.Attr = ControllerService.clone<Attributes>({
+      this.Attr = ControllerHelperService.clone<Attributes>({
         class : '',
         display : true,
         placeholder : '',
@@ -36,7 +36,7 @@ export class ControllerBase<T> {
       }, this.Attr);
       this.GridLayout = options.GridLayout;
       this.Validations = options.Validations || [];
-      this.Events = ControllerService.clone<ControlEvent>({
+      this.Events = ControllerHelperService.clone<ControlEvent>({
         clickEvent: () => {},
         changeEvent: () => {},
         blurEvent: () => {},

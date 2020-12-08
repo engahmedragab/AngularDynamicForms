@@ -1,0 +1,16 @@
+<div [formGroup]="form">
+    <input
+        [formControlName]="controller.key"
+        [id]="controller.key"
+        [value]="controller.Value[0]"
+        [class]="controller.Attr.class" 
+        [type]="controller.Attr.type"
+        [placeholder]="controller.Attr.placeholder"
+        [readOnly]="controller.Attr.readonly"
+        [required]="controller.Attr.required"
+        [hidden]="controller.Attr.hidden"
+        (click)="controller.Events.clickEvent()"
+        (blur)="controller.Events.blurEvent()"
+        (change)="controller.Events.changeEvent()"
+    >
+</div>

@@ -4,7 +4,7 @@ import { ControllerService } from './controller.service';
 import { ControllerBase } from './Controllers/controller-base';
 import { async, Observable } from 'rxjs';
 import { IDynamicFormInput } from './dynamic-form-interfaces';
-import { Controls, StringNumber } from './dynamic-form-constants';
+import { Controls, StringNumber, Validations } from './dynamic-form-constants';
 import { Validators } from '@angular/forms';
 
 @Component({
@@ -40,22 +40,33 @@ export class AppComponent {
         Label: 'First name',
         Value: () => 'Bombasto',
         Order: 1,
-        ControlType : service.getControlType(Controls.TEXTBOX)
+        ControlType : service.getControlType(Controls.TEXTBOX),
+        Validations : [
+          { name : 'required',
+            validator : Validations.REQUIRED,
+            message : 'the firstName is required'
+          }
+        ]
       }
     ,
-    {   key: 'Email',
-        Label: 'name',
+    {   key: 'email',
+        Label: 'Email',
         Value: () => 'Set',
         Order: 1,
         ControlType : service.getControlType(Controls.TEXTBOX),
         Validations : [
-          { name : 'email',
-            validator : Validators.email,
-            message : 'the name is not valid'
+          { name : null,
+            validator : Validations.EMAIL,
+            message : 'the Email is not valid'
           },
-          { name : 'requrd',
-            validator : Validators.required,
-            message : 'the name is requesrd'
+          { name : null,
+            validator : Validations.REQUIRED,
+            message : 'the Email is required',
+          },
+          { name : null,
+            validator : Validations.MINLENGTH,
+            message : 'the Email has wrong length! Required length',
+            requiredValue : 10
           }
         ]
       }

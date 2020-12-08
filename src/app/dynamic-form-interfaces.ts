@@ -1,6 +1,6 @@
 import { FormGroup, ValidatorFn , ValidationErrors, AbstractControlOptions } from '@angular/forms';
 import { ControllerBase } from './Controllers/controller-base';
-import { Controls, NumberNull, StringNull, StringNumber, Value } from './dynamic-form-constants';
+import { Controls, NumberNull, StringNull, StringNumber, Validations, Value } from './dynamic-form-constants';
 
 
 
@@ -44,6 +44,7 @@ export namespace IControllerBase {
       }
 }
 
+
 export interface IControllerBaseFactory {
     name: string;
     prams: any;
@@ -70,8 +71,9 @@ export interface Attributes {
 
 export interface Validator {
     name: string | null;
-    validationValue?: any | null;
-    validator?: ValidatorFn | null;
+    requiredValue?: any | null;
+    validator?: Validations;
+    customValidator?: ValidatorFn;
     message?: string | null;
 }
 
