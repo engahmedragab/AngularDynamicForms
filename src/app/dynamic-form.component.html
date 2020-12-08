@@ -2,7 +2,7 @@
   <form (ngSubmit)="onSubmit()" [class]="dynamicFormInput.Class.join(' ')" [formGroup]="form">
     <h1 class="h1">{{dynamicFormInput.Title}}</h1>
 
-    <div *ngFor="let controller of dynamicFormInput.Controls" class="form-row">
+    <div *ngFor="let controller of controls" class="form-row">
       <app-controller [controller]="controller" [form]="form"></app-controller>
     </div>
 

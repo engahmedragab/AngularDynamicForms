@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 
 import { ControllerService } from './controller.service';
-import { ControllerBase } from './Controllers/controller-base';
-import { async, Observable } from 'rxjs';
 import { IDynamicFormInput } from './dynamic-form-interfaces';
-import { Controls, StringNumber, Validations } from './dynamic-form-constants';
-import { Validators } from '@angular/forms';
+import { Controls, Validations } from './dynamic-form-constants';
 
 @Component({
   selector: 'app-root',
@@ -14,18 +11,20 @@ import { Validators } from '@angular/forms';
       <h2>Job Application for Heroes</h2>
       <app-dynamic-form (formGroupEmitter)="GetFormGroup($event)" [dynamicFormInput]="dynamicFormInput"></app-dynamic-form>
     </div>
-  `,
-  providers:  [ControllerService]
+  `
 })
 export class AppComponent {
   dynamicFormInput: IDynamicFormInput;
 
-  constructor(service: ControllerService) {
-
-    console.log(service.getControlsClasses());
-    const controls = service.controlsClassesFactory([{
+  constructor() {
+    this.dynamicFormInput = {
+      Id: 1,
+      Title: 'Entisabe',
+      Class: [''],
+      ValidateForm: true, // Default value
+      Controls: [{
         key: 'brave',
-        ControlType: service.getControlType(Controls.DROPDOWN),
+        ControlType: Controls.DROPDOWN,
         Label: 'Bravery Rating',
         Options: [
           { key: 1, value: 'Solid' },
@@ -40,7 +39,7 @@ export class AppComponent {
         Label: 'First name',
         Value: () => 'Bombasto',
         Order: 1,
-        ControlType : service.getControlType(Controls.TEXTBOX),
+        ControlType : Controls.TEXTBOX,
         Validations : [
           { name : 'required',
             validator : Validations.REQUIRED,
@@ -53,7 +52,7 @@ export class AppComponent {
         Label: 'Email',
         Value: () => 'Set',
         Order: 1,
-        ControlType : service.getControlType(Controls.TEXTBOX),
+        ControlType : Controls.TEXTBOX,
         Validations : [
           { name : null,
             validator : Validations.EMAIL,
@@ -70,13 +69,7 @@ export class AppComponent {
           }
         ]
       }
-    ]);
-    this.dynamicFormInput = {
-      Id: 1,
-      Title: 'Entisabe',
-      Class: [''],
-      ValidateForm: true, // Default value
-      Controls: controls,
+    ],
       Submit: () => { console.log('Submit'); },
       Cancel: () => { console.log('Cancel'); }
     };
@@ -86,4 +79,5 @@ export class AppComponent {
   GetFormGroup(event){
     console.log(event);
   }
+  
 }

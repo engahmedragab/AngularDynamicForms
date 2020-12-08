@@ -10,7 +10,7 @@ export interface IDynamicFormInput {
     Class?: string[];
     ValidateForm?: boolean; // Default value
     gridColumnCount?: number;
-    Controls: ControllerBase<any>[];
+    Controls: IControllerBase[];
     Submit: () => void;
     Cancel?: () => void;
 }
@@ -20,7 +20,7 @@ export interface IControllerBase {
     key?: StringNumber;
     Label?: string;
     Order?: number;
-    ControlType?: Controls;
+    ControlType?: string;
     Attr?: Attributes;
     GridLayout?: GridLayout | null;
     Validations?: Validator[] | [];

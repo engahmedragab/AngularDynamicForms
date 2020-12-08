@@ -9,7 +9,7 @@ import { TextBoxController } from '../controller-textbox';
 })
 export class TextboxComponent implements OnInit {
   @Input() controller: TextBoxController;
-  @Input() form : FormGroup;
+  @Input() form: FormGroup;
 
   constructor() { }
 

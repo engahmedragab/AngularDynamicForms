@@ -22,7 +22,7 @@ export class ControllerBase<T> {
       this.key = options.key || '';
       this.Label = options.Label || '';
       this.Order = options.Order === undefined ? 1 : options.Order;
-      this.ControlType = options.ControlType;
+      this.ControlType = ControllerHelperService.getControlType(options.ControlType);
       this.Attr = ControllerHelperService.clone<Attributes>({
         class : '',
         display : true,
