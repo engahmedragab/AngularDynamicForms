@@ -1,6 +1,5 @@
-import { FormGroup, ValidatorFn , ValidationErrors, AbstractControlOptions } from '@angular/forms';
-import { ControllerBase } from './Controllers/controller-base';
-import { Controls, NumberNull, StringNull, StringNumber, Validations, Value } from './dynamic-form-constants';
+import { ValidatorFn } from '@angular/forms';
+import { EventTypes, NumberNull, StringNull, StringNumber, Validations, Value } from './dynamic-form-constants';
 
 
 
@@ -63,9 +62,6 @@ export interface Attributes {
     readonly?: boolean | false;
     placeholder?: string | '';
     display?: boolean | true;
-    min?: NumberNull;
-    max?: NumberNull;
-    required?: boolean | true;
     hidden?: boolean | false;
 }
 
@@ -78,9 +74,11 @@ export interface Validator {
 }
 
 export interface ControlEvent {
-    name?: 'click' | 'change' | 'blur' | 'select';
+    name?: EventTypes;
     callable?: () => any;
 }
+
+
 
 export interface EventValue {
     validateForm?: boolean | false;

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { ControllerService } from './controller.service';
 import { IDynamicFormInput } from './dynamic-form-interfaces';
-import { Controls, Validations } from './dynamic-form-constants';
+import { Controls, EventTypes, Validations } from './dynamic-form-constants';
 
 @Component({
   selector: 'app-root',
@@ -41,7 +41,7 @@ export class AppComponent {
         Order: 1,
         ControlType : Controls.TEXTBOX,
         Events: [{
-          name: 'click',
+          name: EventTypes.CLICK,
           callable: () => { console.log('test click event'); }
         }],
         Validations : [
@@ -58,15 +58,15 @@ export class AppComponent {
         Order: 1,
         ControlType : Controls.TEXTBOX,
         Events: [{
-          name: 'click',
+          name: EventTypes.CLICK,
           callable: () => { console.log('test click event'); }
         },
         {
-          name: 'change',
+          name: EventTypes.CHANGE,
           callable: () => { console.log('test change event'); }
         },
         {
-          name: 'blur',
+          name: EventTypes.BLUR,
           callable: () => { console.log('test blur event'); }
         }],
         Validations : [

@@ -29,10 +29,7 @@ export class ControllerBase<T> {
         placeholder : '',
         readonly : false,
         type : '',
-        min : null,
-        max : null,
         hidden : false,
-        required : false,
       }, this.Attr);
       this.GridLayout = options.GridLayout;
       this.Validations = options.Validations || [];
