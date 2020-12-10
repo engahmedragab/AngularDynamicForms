@@ -78,7 +78,7 @@ export class ControllerService {
         (x) => x.name === control.ControlType
       )[0];
       return new controlClass(control) as ControllerBase<any>;
-    });
+    }).sort((a, b) => a.Order - b.Order);
   }
 
 }

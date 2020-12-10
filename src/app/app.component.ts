@@ -204,7 +204,7 @@ export class AppComponent {
         }],
         Label: 'goool Rating',
         Value: () => new Date(),
-        Order: 10
+        Order: 14
       },
       {
         key: 'image',
