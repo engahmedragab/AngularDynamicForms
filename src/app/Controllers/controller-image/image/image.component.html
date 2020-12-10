@@ -1,0 +1,9 @@
+<div [formGroup]="form">
+    <img
+        [src]="controller.Value.call(0)"
+        [alt]="controller.Label"
+        [id]="controller.key"
+        [class]="controller.Attr.class" 
+        [hidden]="controller.Attr.hidden"
+    >
+</div>

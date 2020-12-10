@@ -1,3 +1,11 @@
+import { DateTimeController } from './Controllers/controller-datetime/controller-datetime';
+import { TextAreaController } from './Controllers/controller-textarea/controller-textarea';
+import { ImageController } from './Controllers/controller-image/controller-image';
+import { TimeController } from './Controllers/controller-time/controller-time';
+import { DateController } from './Controllers/controller-date/controller-date';
+import { FileController } from './Controllers/controller-file/controller-file';
+import { BottonController } from './Controllers/controller-button/controller-button';
+import { CheckBoxListController } from './Controllers/controller-checkboxlist/controller-checkboxlist';
 import { Injectable } from '@angular/core';
 
 import { DropDownController } from './Controllers/controller-dropdown/controller-dropdown';
@@ -14,6 +22,14 @@ export default [
   TextBoxController,
   RadioBottonController,
   CheckBoxController,
+  CheckBoxListController,
+  BottonController,
+  FileController,
+  DateController,
+  TimeController,
+  DateTimeController,
+  ImageController,
+  TextAreaController
 ];
 
 @Injectable()

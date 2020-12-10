@@ -16,15 +16,16 @@ export interface IDynamicFormInput {
 
 export interface IControllerBase {
     Value?: Value<any>;
-    key?: StringNumber;
-    Label?: string;
-    Order?: number;
+    key: StringNumber;
+    Label: string;
+    IsLabeled?: boolean;
+    Order: number;
     ControlType?: string;
     Attr?: Attributes;
     GridLayout?: GridLayout | null;
     Validations?: Validator[] | [];
     Events?: ControlEvent[] | [];
-    Options?: {key: StringNumber, value: StringNumber}[];
+    Options?: {key: StringNumber, value: any}[];
 }
 
 // tslint:disable-next-line: no-namespace

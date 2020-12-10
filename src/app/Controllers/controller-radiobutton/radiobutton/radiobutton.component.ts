@@ -14,5 +14,8 @@ export class RadiobuttonComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  change(event){
+    this.controller.Events.filter(x => x.name == 'change')[0]?.callable();
+  }
 
 }

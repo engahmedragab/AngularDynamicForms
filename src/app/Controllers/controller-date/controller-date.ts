@@ -4,7 +4,6 @@ import { ControllerBase } from '../controller-base';
 import IBase = IControllerBase.register;
 
 @IBase
-export class CheckBoxController extends ControllerBase<boolean>{
-  ControlType = Controls.CHECKBOX;
-  IsLabeled = false;
+export class DateController extends ControllerBase<Date>{
+  ControlType = Controls.DATE;
 }

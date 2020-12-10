@@ -1,6 +1,6 @@
 <div [formGroup]="form">
     <div *ngFor="let opt of controller.options">
-        <input type="radio" [id]="opt.key" [name]="controller.key" [value]="opt.key">
+        <input type="radio" [id]="opt.key" [name]="controller.key" [value]="opt.key" (change)="change($event)">
         <label [for]="opt.key">{{opt.value}}</label><br>
     </div>
 </div>

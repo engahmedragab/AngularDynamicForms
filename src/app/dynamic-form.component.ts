@@ -27,7 +27,7 @@ export class DynamicFormComponent implements OnInit {
     this.controls = this.service.controlsClassesFactory(this.dynamicFormInput.Controls);
     this.form = this.qcs.toFormGroup(this.controls);
     // this.qcs.setFormGroupValidators(this.form,this.dynamicFormInput.Controls);
-    console.log(this.dynamicFormInput.Controls);
+    console.log(this.controls);
   }
 
   onSubmit() {

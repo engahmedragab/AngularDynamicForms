@@ -15,12 +15,11 @@ export class CheckboxComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
   }
   ngAfterViewInit(): void {
-
-    this.form.controls[this.controller.key].setValue(this.controller.Value(false) || false);
+    // this.form.controls[this.controller.key].setValue(this.controller.Value.call(0) || false);
   }
 
   checkValue(event){
-    this.form.controls[this.controller.key].setValue(event.target.checked);
+    // this.form.controls[this.controller.key].setValue(event.target.checked);
   }
 
 }

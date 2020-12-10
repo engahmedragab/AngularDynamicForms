@@ -1,0 +1,14 @@
+<div [formGroup]="form">
+    <label [for]="controller.key">{{controller.Label}}</label>
+    <input
+        type="file"
+        [formControlName]="controller.key"
+        [id]="controller.key"
+        [name]="controller.key"
+        [class]="controller.Attr.class" 
+        [placeholder]="controller.Attr.placeholder"
+        [readOnly]="controller.Attr.readonly"
+        [hidden]="controller.Attr.hidden"
+        multiple
+    ><br>
+</div>

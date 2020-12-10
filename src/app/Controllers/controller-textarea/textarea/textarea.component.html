@@ -1,0 +1,12 @@
+<div [formGroup]="form">
+    <textarea 
+        [formControlName]="controller.key"
+        [id]="controller.key"
+        [class]="controller.Attr.class" 
+        [placeholder]="controller.Attr.placeholder"
+        [readOnly]="controller.Attr.readonly"
+        [hidden]="controller.Attr.hidden"
+    >
+    {{controller.Value.call(0)}}
+</textarea>
+</div>

@@ -4,7 +4,7 @@ import { ControllerBase } from '../controller-base';
 import IBase = IControllerBase.register;
 
 @IBase
-export class CheckBoxController extends ControllerBase<boolean>{
-  ControlType = Controls.CHECKBOX;
+export class ImageController extends ControllerBase<string>{
+  ControlType = Controls.IMAGE;
   IsLabeled = false;
 }

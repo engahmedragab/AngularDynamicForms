@@ -6,6 +6,7 @@ export class ControllerBase<T> {
   Value: Value<T>;
   key: StringNumber;
   Label: StringNull;
+  IsLabeled: boolean;
   Order: number;
   ControlType: Controls;
   Attr?: Attributes;
@@ -15,7 +16,7 @@ export class ControllerBase<T> {
   options: {key: StringNumber, value: StringNumber}[];
 
 
-  constructor(options: IControllerBase = {}
+  constructor(options: IControllerBase = { key: '' , Label : null , Order : 0 }
 )
     {
       this.Value = options.Value;
@@ -23,6 +24,7 @@ export class ControllerBase<T> {
       this.Label = options.Label || '';
       this.Order = options.Order === undefined ? 1 : options.Order;
       this.ControlType = ControllerHelperService.getControlType(options.ControlType);
+      this.IsLabeled = options.IsLabeled || true;
       this.Attr = ControllerHelperService.clone<Attributes>({
         class : '',
         display : true,

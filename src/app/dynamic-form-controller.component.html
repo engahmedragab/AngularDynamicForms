@@ -1,13 +1,21 @@
 <div [formGroup]="form">
-  <label [attr.for]="controller.key">{{controller.Label}}</label>
+  <label *ngIf="controller.IsLabeled" [attr.for]="controller.key">{{controller.Label}}</label>
 
   <div  #elementRef [ngSwitch]="controller.ControlType.toString()">
       
     <app-textbox *ngSwitchCase="Controls.TEXTBOX.toString()" [controller]="controller" [form]="form"></app-textbox>
+    <app-textarea *ngSwitchCase="Controls.TEXTAREA.toString()" [controller]="controller" [form]="form"></app-textarea>
     <app-dropdown *ngSwitchCase="Controls.DROPDOWN.toString()" [controller]="controller" [form]="form"></app-dropdown>
     <app-radiobutton *ngSwitchCase="Controls.RADIOBUTTON.toString()" [controller]="controller" [form]="form"></app-radiobutton>
     <app-checkbox *ngSwitchCase="Controls.CHECKBOX.toString()" [controller]="controller" [form]="form"></app-checkbox>
-
+    <app-checkboxlist *ngSwitchCase="Controls.CHECKBOXLIST.toString()" [controller]="controller" [form]="form"></app-checkboxlist>
+    <app-button *ngSwitchCase="Controls.BUTTON.toString()" [controller]="controller" [form]="form"></app-button>
+    <app-date *ngSwitchCase="Controls.DATE.toString()" [controller]="controller" [form]="form"></app-date>
+    <app-time *ngSwitchCase="Controls.TIME.toString()" [controller]="controller" [form]="form"></app-time>
+    <app-datetime *ngSwitchCase="Controls.DATETIME.toString()" [controller]="controller" [form]="form"></app-datetime>
+    <app-image *ngSwitchCase="Controls.IMAGE.toString()" [controller]="controller" [form]="form"></app-image>
+    <app-file *ngSwitchCase="Controls.FILE.toString()" [controller]="controller" [form]="form"></app-file>
+    
   </div>
   <div *ngIf="!isValid">
     <div  *ngFor="let error of errors">

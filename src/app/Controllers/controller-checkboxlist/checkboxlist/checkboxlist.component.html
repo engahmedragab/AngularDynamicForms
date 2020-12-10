@@ -1,6 +1,10 @@
-<!-- <div [formGroup]="form">
+<div [formGroup]="internalFormGroup">
     <div *ngFor="let opt of controller.options">
-        <input type="checkbox" [id]="opt.key" [name]="controller.key" [value]="opt.key">
-        <label [for]="opt.key">{{opt.value}}</label><br>
+        <input type="checkbox" 
+            [formControlName]="opt.value" 
+            [id]="opt.key" 
+            [name]="controller.key" 
+            (change)="checkValue($event)" >
+        <label [for]="opt.value">{{opt.value}}</label><br>
     </div>
-</div> -->
+</div>

@@ -1,4 +1,10 @@
 <div [formGroup]="form">
-    <input type="checkbox" [id]="controller.key" [name]="controller.key" [checked]="controller.Value" [value]="controller.Value" (change)="checkValue($event)" >
+    <input type="checkbox" 
+        [id]="controller.key" 
+        [formControlName]="controller.key"
+        [name]="controller.key" 
+        [checked]="controller.Value.call(0)" 
+        [value]="controller.Value.call(0)" 
+        (change)="checkValue($event)" >
     <label [for]="controller.key" > {{controller.Label}} </label><br>
 </div>
